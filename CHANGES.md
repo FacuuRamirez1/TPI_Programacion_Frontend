@@ -203,7 +203,7 @@ Paso │ Agente A (HTML/CSS/JS) │ Agente B │ Agente C
 ## FASE 6 — Persistencia, verificación y documentación (Ejercicio 6)
 
 ### [C-06] `persistencia-verificacion-documentacion`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado
 - **Scope**: Cierre de persistencia, casos manuales observados y README de entrega
   - `js/almacenamiento.js` v2: `tuco:esquema = "1"`; seed solo en el primer inicio; al recargar se recuperan colecciones sin duplicar ejemplos; colección faltante con esquema inicializado se crea vacía; escritura reemplaza la colección completa
   - Manejo de fallas: `localStorage` bloqueado o sin cuota → mensaje visible y operación no confirmada; JSON corrupto → mensaje y opción de reiniciar solo la colección afectada, sin borrado automático

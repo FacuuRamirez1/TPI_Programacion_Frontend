@@ -59,6 +59,18 @@
       .join(', ');
   }
 
+  function obtenerPortada(titulo) {
+    var mapa = {
+      'Ficciones': 'Ficciones.webp',
+      'Rayuela': 'Rayuela.webp',
+      'Cien años de soledad': 'Cien-anos-de-soledad.webp',
+      'El túnel': 'el-tunel.webp',
+      'Las cosas que perdimos en el fuego': 'Las-cosas-que-perdimos-en-el-fuego.webp',
+      'Catedrales': 'Catedrales.webp'
+    };
+    return mapa[titulo] || 'portada-placeholder.svg';
+  }
+
   function crearTarjeta(libro, indices) {
     var fragmento = elementos.plantilla.content.cloneNode(true);
     var tarjeta = fragmento.querySelector('.tarjeta');
@@ -67,6 +79,16 @@
     var genero = libro.generoId === null || libro.generoId === undefined
       ? null
       : indices.generos.get(libro.generoId);
+
+    var imagen = tarjeta.querySelector('img');
+    if (imagen) {
+      var archivo = obtenerPortada(libro.titulo);
+      imagen.src = 'assets/portadas/' + archivo;
+      imagen.alt = 'Portada de ' + libro.titulo;
+    }
+
+    // Hacer la tarjeta alcanzable por teclado (Tab)
+    tarjeta.setAttribute('tabindex', '0');
 
     asignarTexto(tarjeta, '.tarjeta-titulo', libro.titulo);
     asignarTexto(tarjeta, '.tarjeta-isbn', libro.isbn);
