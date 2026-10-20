@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas — Librería TU-CO</title>
+</head>
+<body>
+  <a href="#contenido">Saltar al contenido</a>
+
+  <header>
+    <p>Librería TU-CO</p>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Catálogo</a></li>
+      <li><a href="libros.html">Libros</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="ventas.html" aria-current="page">Ventas</a></li>
+      <li><a href="historial.html">Historial</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido" tabindex="-1">
+    <h1>Ventas</h1>
+
+    <section aria-labelledby="titulo-composicion">
+      <h2 id="titulo-composicion">Composición de la venta</h2>
+
+      <form id="form-venta" method="get" novalidate>
+        <p>
+          <label for="clienteId">Cliente</label>
+          <select id="clienteId" name="clienteId">
+            <option value="" disabled selected>Seleccioná un cliente</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="libroId">Libro</label>
+          <select id="libroId" name="libroId">
+            <option value="" disabled selected>Seleccioná un libro</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="cantidad">Cantidad</label>
+          <input type="number" id="cantidad" name="cantidad">
+        </p>
+
+        <button type="submit">Agregar renglón</button>
+
+        <div class="tabla-contenedor">
+          <table id="tabla-renglones">
+            <caption>Renglones de la venta</caption>
+            <thead>
+              <tr>
+                <th scope="col">Libro</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <p>
+          <label for="total-venta">Total</label>
+          <output id="total-venta">0</output>
+        </p>
+
+        <button type="submit">Confirmar venta</button>
+
+        <p id="mensaje-venta" role="status">Todavía no se agregaron renglones a la venta.</p>
+      </form>
+    </section>
+
+    <template id="plantilla-fila-renglon">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button type="button">Quitar renglón</button></td>
+      </tr>
+    </template>
+  </main>
+
+  <footer>
+    <p>Librería TU-CO — Trabajo Práctico Integrador</p>
+  </footer>
+</body>
+</html>

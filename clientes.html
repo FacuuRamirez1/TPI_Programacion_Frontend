@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes — Librería TU-CO</title>
+</head>
+<body>
+  <a href="#contenido">Saltar al contenido</a>
+
+  <header>
+    <p>Librería TU-CO</p>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Catálogo</a></li>
+      <li><a href="libros.html">Libros</a></li>
+      <li><a href="clientes.html" aria-current="page">Clientes</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="historial.html">Historial</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido" tabindex="-1">
+    <h1>Clientes</h1>
+
+    <section aria-labelledby="titulo-alta-cliente">
+      <h2 id="titulo-alta-cliente">Registrar cliente</h2>
+
+      <form id="form-cliente" method="get" novalidate>
+        <p>
+          <label for="nombreCompleto">Nombre completo</label>
+          <input type="text" id="nombreCompleto" name="nombreCompleto">
+        </p>
+
+        <p>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </p>
+
+        <button type="submit">Registrar cliente</button>
+      </form>
+
+      <p id="mensaje-cliente" role="status" hidden></p>
+    </section>
+
+    <section aria-labelledby="titulo-listado-clientes">
+      <h2 id="titulo-listado-clientes">Clientes registrados</h2>
+
+      <p id="mensaje-clientes-vacio" role="status">Todavía no hay clientes registrados.</p>
+
+      <div class="tabla-contenedor">
+        <table id="tabla-clientes">
+          <caption>Clientes registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nombre completo</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <template id="plantilla-fila-cliente">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+  </main>
+
+  <footer>
+    <p>Librería TU-CO — Trabajo Práctico Integrador</p>
+  </footer>
+</body>
+</html>

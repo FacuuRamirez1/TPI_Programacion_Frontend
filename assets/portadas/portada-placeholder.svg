@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" role="img" aria-labelledby="titulo-portada descripcion-portada">
+  <title id="titulo-portada">TU-CO / Portada no disponible</title>
+  <desc id="descripcion-portada">Portada genérica de la Librería TU-CO. Indica que la portada del libro no está disponible.</desc>
+  <rect width="200" height="300" fill="#f2efe9"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#6b5b4b" stroke-width="2"/>
+  <line x1="10" y1="200" x2="190" y2="200" stroke="#6b5b4b" stroke-width="2"/>
+  <line x1="30" y1="228" x2="170" y2="228" stroke="#a89a8a" stroke-width="1"/>
+  <line x1="30" y1="242" x2="170" y2="242" stroke="#a89a8a" stroke-width="1"/>
+  <line x1="30" y1="256" x2="140" y2="256" stroke="#a89a8a" stroke-width="1"/>
+  <text x="100" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#3d3128">TU-CO</text>
+  <text x="100" y="150" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#3d3128">Portada no disponible</text>
+</svg>
