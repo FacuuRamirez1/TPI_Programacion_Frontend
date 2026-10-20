@@ -135,7 +135,7 @@ Paso │ Agente A (HTML/CSS/JS) │ Agente B │ Agente C
 ## FASE 3 — Datos locales y catálogo (Ejercicio 3)
 
 ### [C-03] `datos-locales-catalogo-filtro`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado
 - **Scope**: Modelo de datos, seed, render del catálogo y filtro por título
   - `js/datos-iniciales.js`: publica `TUCO.datosIniciales` con 2 editoriales, 2 géneros, 3 autores, 6 libros y 3 clientes; IDs `edi-N`, `gen-N`, `aut-N`, `lib-N`, `cli-N`; `generoId: null` para «Sin clasificar»
   - `js/almacenamiento.js` v1: inicialización de colecciones, `leerColeccion`/`escribirColeccion`, generación del siguiente ID; única capa que conoce las claves `tuco:*` (la semántica de esquema y seed-único se completa en C-06)
