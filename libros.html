@@ -30,44 +30,52 @@
       <h2 id="titulo-alta-libro">Registrar libro</h2>
 
       <form id="form-libro" method="get" novalidate class="formulario">
+        <p id="resumen-errores-libro" class="mensaje mensaje--error" role="alert" hidden></p>
+
         <p class="campo">
           <label for="titulo">Título</label>
-          <input type="text" id="titulo" name="titulo">
+          <input type="text" id="titulo" name="titulo" aria-describedby="error-titulo">
         </p>
+        <div id="error-titulo" class="mensaje mensaje--error" hidden></div>
 
         <p class="campo">
           <label for="isbn">ISBN</label>
-          <input type="text" id="isbn" name="isbn">
+          <input type="text" id="isbn" name="isbn" aria-describedby="error-isbn">
         </p>
+        <div id="error-isbn" class="mensaje mensaje--error" hidden></div>
 
         <p class="campo">
           <label for="precio">Precio</label>
-          <input type="number" id="precio" name="precio">
+          <input type="number" id="precio" name="precio" aria-describedby="error-precio">
         </p>
+        <div id="error-precio" class="mensaje mensaje--error" hidden></div>
 
         <p class="campo">
           <label for="editorialId">Editorial</label>
-          <select id="editorialId" name="editorialId">
+          <select id="editorialId" name="editorialId" aria-describedby="error-editorialId">
             <option value="" disabled selected>Seleccioná una editorial</option>
           </select>
         </p>
+        <div id="error-editorialId" class="mensaje mensaje--error" hidden></div>
 
         <p class="campo">
           <label for="generoId">Género</label>
-          <select id="generoId" name="generoId">
+          <select id="generoId" name="generoId" aria-describedby="error-generoId">
             <option value="" selected>Sin clasificar</option>
           </select>
         </p>
+        <div id="error-generoId" class="mensaje mensaje--error" hidden></div>
 
         <fieldset class="campo campo--completo">
           <legend>Autores</legend>
           <p class="campo">
             <label for="autorIds">Autores del libro</label>
-            <select id="autorIds" name="autorIds" multiple aria-describedby="ayuda-autorIds">
-              <option value="" disabled selected>Seleccioná uno o más autores</option>
+            <select id="autorIds" name="autorIds" multiple aria-describedby="ayuda-autorIds error-autorIds">
+              <option value="" disabled>Seleccioná uno o más autores</option>
             </select>
           </p>
           <p id="ayuda-autorIds">Mantené presionada la tecla Ctrl (o Cmd en Mac) para seleccionar más de un autor.</p>
+          <div id="error-autorIds" class="mensaje mensaje--error" hidden></div>
         </fieldset>
 
         <button type="submit" class="boton boton--primario">Registrar libro</button>
@@ -114,5 +122,11 @@
   <footer>
     <p>Librería TU-CO — Trabajo Práctico Integrador</p>
   </footer>
+
+  <script src="js/datos-iniciales.js" defer></script>
+  <script src="js/almacenamiento.js" defer></script>
+  <script src="js/validaciones.js" defer></script>
+  <script src="js/formato.js" defer></script>
+  <script src="js/libros.js" defer></script>
 </body>
 </html>

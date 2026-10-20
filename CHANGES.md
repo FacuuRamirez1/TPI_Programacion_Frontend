@@ -157,7 +157,7 @@ Paso │ Agente A (HTML/CSS/JS) │ Agente B │ Agente C
 ## FASE 4 — Altas de libros y clientes (Ejercicio 4)
 
 ### [C-04] `altas-libros-clientes`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado
 - **Scope**: Formularios de alta con validaciones y actualización del DOM sin recargar
   - `js/validaciones.js`: funciones puras de normalización y validación de libros, clientes y ventas
   - `js/libros.js`: `preventDefault`, lectura de campos, generación de `lib-N`, persistencia y re-render del listado; poblado de `select` de editorial, `select` de género con «Sin clasificar» (`value=""`) y `select multiple` de autores desde el seed
