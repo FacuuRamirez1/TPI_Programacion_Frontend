@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Libros — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html">Catálogo</a></li>
-      <li><a href="libros.html" aria-current="page">Libros</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="historial.html">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="libros.html" aria-current="page">Libros</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Libros</h1>
@@ -28,39 +29,39 @@
     <section aria-labelledby="titulo-alta-libro">
       <h2 id="titulo-alta-libro">Registrar libro</h2>
 
-      <form id="form-libro" method="get" novalidate>
-        <p>
+      <form id="form-libro" method="get" novalidate class="formulario">
+        <p class="campo">
           <label for="titulo">Título</label>
           <input type="text" id="titulo" name="titulo">
         </p>
 
-        <p>
+        <p class="campo">
           <label for="isbn">ISBN</label>
           <input type="text" id="isbn" name="isbn">
         </p>
 
-        <p>
+        <p class="campo">
           <label for="precio">Precio</label>
           <input type="number" id="precio" name="precio">
         </p>
 
-        <p>
+        <p class="campo">
           <label for="editorialId">Editorial</label>
           <select id="editorialId" name="editorialId">
             <option value="" disabled selected>Seleccioná una editorial</option>
           </select>
         </p>
 
-        <p>
+        <p class="campo">
           <label for="generoId">Género</label>
           <select id="generoId" name="generoId">
             <option value="" selected>Sin clasificar</option>
           </select>
         </p>
 
-        <fieldset>
+        <fieldset class="campo campo--completo">
           <legend>Autores</legend>
-          <p>
+          <p class="campo">
             <label for="autorIds">Autores del libro</label>
             <select id="autorIds" name="autorIds" multiple aria-describedby="ayuda-autorIds">
               <option value="" disabled selected>Seleccioná uno o más autores</option>
@@ -69,19 +70,19 @@
           <p id="ayuda-autorIds">Mantené presionada la tecla Ctrl (o Cmd en Mac) para seleccionar más de un autor.</p>
         </fieldset>
 
-        <button type="submit">Registrar libro</button>
+        <button type="submit" class="boton boton--primario">Registrar libro</button>
       </form>
 
-      <p id="mensaje-libro" role="status" hidden></p>
+      <p id="mensaje-libro" role="status" hidden class="mensaje"></p>
     </section>
 
     <section aria-labelledby="titulo-listado-libros">
       <h2 id="titulo-listado-libros">Libros registrados</h2>
 
-      <p id="mensaje-libros-vacio" role="status">Todavía no hay libros registrados.</p>
+      <p id="mensaje-libros-vacio" role="status" class="mensaje mensaje--vacio">Todavía no hay libros registrados.</p>
 
-      <div class="tabla-contenedor">
-        <table id="tabla-libros">
+      <div class="tabla-contenedor" role="region" tabindex="0" aria-label="Libros registrados, tabla desplazable">
+        <table id="tabla-libros" class="tabla tabla--ancha">
           <caption>Libros registrados</caption>
           <thead>
             <tr>

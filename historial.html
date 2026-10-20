@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Historial — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html">Catálogo</a></li>
-      <li><a href="libros.html">Libros</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="historial.html" aria-current="page">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="libros.html">Libros</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li><a href="historial.html" aria-current="page">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Historial</h1>
@@ -28,10 +29,10 @@
     <section aria-labelledby="titulo-listado-ventas">
       <h2 id="titulo-listado-ventas">Ventas registradas</h2>
 
-      <p id="mensaje-historial-vacio" role="status">Todavía no hay ventas confirmadas.</p>
+      <p id="mensaje-historial-vacio" role="status" class="mensaje mensaje--vacio">Todavía no hay ventas confirmadas.</p>
 
-      <div class="tabla-contenedor">
-        <table id="tabla-ventas">
+      <div class="tabla-contenedor" role="region" tabindex="0" aria-label="Ventas confirmadas, tabla desplazable">
+        <table id="tabla-ventas" class="tabla tabla--ancha">
           <caption>Ventas confirmadas</caption>
           <thead>
             <tr>
@@ -53,7 +54,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><a href="venta-detalle.html?id=ven-N">Ver detalle</a></td>
+        <td><a href="venta-detalle.html?id=ven-N">Ver detalle<span class="visualmente-oculto"> de la venta</span></a></td>
       </tr>
     </template>
   </main>

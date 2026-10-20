@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ventas — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html">Catálogo</a></li>
-      <li><a href="libros.html">Libros</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="ventas.html" aria-current="page">Ventas</a></li>
-      <li><a href="historial.html">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="libros.html">Libros</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="ventas.html" aria-current="page">Ventas</a></li>
+        <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Ventas</h1>
@@ -28,30 +29,30 @@
     <section aria-labelledby="titulo-composicion">
       <h2 id="titulo-composicion">Composición de la venta</h2>
 
-      <form id="form-venta" method="get" novalidate>
-        <p>
+      <form id="form-venta" method="get" novalidate class="formulario">
+        <p class="campo">
           <label for="clienteId">Cliente</label>
           <select id="clienteId" name="clienteId">
             <option value="" disabled selected>Seleccioná un cliente</option>
           </select>
         </p>
 
-        <p>
+        <p class="campo">
           <label for="libroId">Libro</label>
           <select id="libroId" name="libroId">
             <option value="" disabled selected>Seleccioná un libro</option>
           </select>
         </p>
 
-        <p>
+        <p class="campo">
           <label for="cantidad">Cantidad</label>
           <input type="number" id="cantidad" name="cantidad">
         </p>
 
-        <button type="submit">Agregar renglón</button>
+        <button type="submit" class="boton boton--secundario">Agregar renglón</button>
 
-        <div class="tabla-contenedor">
-          <table id="tabla-renglones">
+        <div class="tabla-contenedor" role="region" tabindex="0" aria-label="Renglones de la venta, tabla desplazable">
+          <table id="tabla-renglones" class="tabla tabla--ancha">
             <caption>Renglones de la venta</caption>
             <thead>
               <tr>
@@ -66,14 +67,14 @@
           </table>
         </div>
 
-        <p>
+        <p class="campo">
           <label for="total-venta">Total</label>
-          <output id="total-venta">0</output>
+          <output id="total-venta" class="badge badge--total">0</output>
         </p>
 
-        <button type="submit">Confirmar venta</button>
+        <button type="submit" class="boton boton--primario">Confirmar venta</button>
 
-        <p id="mensaje-venta" role="status">Todavía no se agregaron renglones a la venta.</p>
+        <p id="mensaje-venta" role="status" class="mensaje mensaje--info">Todavía no se agregaron renglones a la venta.</p>
       </form>
     </section>
 
@@ -83,7 +84,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><button type="button">Quitar renglón</button></td>
+        <td><button type="button" class="boton boton--peligro boton--pequeno">Quitar renglón</button></td>
       </tr>
     </template>
   </main>

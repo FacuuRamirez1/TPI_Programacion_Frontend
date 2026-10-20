@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html" aria-current="page">Catálogo</a></li>
-      <li><a href="libros.html">Libros</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="historial.html">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Catálogo</a></li>
+        <li><a href="libros.html">Libros</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Catálogo</h1>
@@ -28,15 +29,15 @@
     <section aria-labelledby="titulo-busqueda">
       <h2 id="titulo-busqueda">Buscar por título</h2>
 
-      <form method="get" novalidate>
+      <form method="get" novalidate class="formulario formulario--busqueda">
         <label for="buscador-titulo">Título del libro</label>
         <input type="search" id="buscador-titulo" name="titulo">
       </form>
 
-      <p id="mensaje-catalogo-vacio" role="status">Todavía no hay libros en el catálogo.</p>
-      <p id="mensaje-sin-resultados" aria-live="polite" hidden>No se encontraron libros para el título buscado.</p>
+      <p id="mensaje-catalogo-vacio" role="status" class="mensaje mensaje--vacio">Todavía no hay libros en el catálogo.</p>
+      <p id="mensaje-sin-resultados" aria-live="polite" hidden class="mensaje mensaje--info">No se encontraron libros para el título buscado.</p>
 
-      <div id="listado-catalogo"></div>
+      <div id="listado-catalogo" class="grilla-catalogo"></div>
     </section>
 
     <template id="plantilla-tarjeta-libro">
@@ -45,7 +46,7 @@
         <h3 class="tarjeta-titulo"></h3>
         <p class="tarjeta-isbn"></p>
         <p class="tarjeta-editorial"></p>
-        <p class="tarjeta-genero"></p>
+        <p class="tarjeta-genero badge"></p>
         <p class="tarjeta-autores"></p>
         <p class="tarjeta-precio"></p>
       </article>

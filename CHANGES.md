@@ -112,7 +112,7 @@ Paso │ Agente A (HTML/CSS/JS) │ Agente B │ Agente C
 ## FASE 2 — Presentación adaptable (Ejercicio 2)
 
 ### [C-02] `presentacion-css-adaptable`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado
 - **Scope**: Identidad visual propia y responsive sobre las pantallas de C-01
   - `css/estilos.css` único (o dividido por responsabilidad) con variables CSS de color, tipografía, espaciado y radios
   - Componentes reutilizables: `.tarjeta`, `.formulario`, `.campo`, `.boton`, `.tabla`, `.mensaje`, `.badge`

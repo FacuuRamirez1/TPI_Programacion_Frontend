@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clientes — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html">Catálogo</a></li>
-      <li><a href="libros.html">Libros</a></li>
-      <li><a href="clientes.html" aria-current="page">Clientes</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="historial.html">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="libros.html">Libros</a></li>
+        <li><a href="clientes.html" aria-current="page">Clientes</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Clientes</h1>
@@ -28,30 +29,30 @@
     <section aria-labelledby="titulo-alta-cliente">
       <h2 id="titulo-alta-cliente">Registrar cliente</h2>
 
-      <form id="form-cliente" method="get" novalidate>
-        <p>
+      <form id="form-cliente" method="get" novalidate class="formulario">
+        <p class="campo">
           <label for="nombreCompleto">Nombre completo</label>
           <input type="text" id="nombreCompleto" name="nombreCompleto">
         </p>
 
-        <p>
+        <p class="campo">
           <label for="email">Email</label>
           <input type="email" id="email" name="email">
         </p>
 
-        <button type="submit">Registrar cliente</button>
+        <button type="submit" class="boton boton--primario">Registrar cliente</button>
       </form>
 
-      <p id="mensaje-cliente" role="status" hidden></p>
+      <p id="mensaje-cliente" role="status" hidden class="mensaje"></p>
     </section>
 
     <section aria-labelledby="titulo-listado-clientes">
       <h2 id="titulo-listado-clientes">Clientes registrados</h2>
 
-      <p id="mensaje-clientes-vacio" role="status">Todavía no hay clientes registrados.</p>
+      <p id="mensaje-clientes-vacio" role="status" class="mensaje mensaje--vacio">Todavía no hay clientes registrados.</p>
 
-      <div class="tabla-contenedor">
-        <table id="tabla-clientes">
+      <div class="tabla-contenedor" role="region" tabindex="0" aria-label="Clientes registrados, tabla desplazable">
+        <table id="tabla-clientes" class="tabla">
           <caption>Clientes registrados</caption>
           <thead>
             <tr>

@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle de venta — Librería TU-CO</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <a href="#contenido">Saltar al contenido</a>
+  <a href="#contenido" class="salto-contenido visualmente-oculto">Saltar al contenido</a>
 
   <header>
-    <p>Librería TU-CO</p>
-  </header>
+    <p class="marca">Librería TU-CO</p>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="index.html">Catálogo</a></li>
-      <li><a href="libros.html">Libros</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="historial.html">Historial</a></li>
-    </ul>
-  </nav>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="libros.html">Libros</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido" tabindex="-1">
     <h1>Detalle de venta</h1>
@@ -28,12 +29,12 @@
     <section aria-labelledby="titulo-detalle-venta">
       <h2 id="titulo-detalle-venta">Datos de la venta</h2>
 
-      <div id="detalle-venta"></div>
+      <div id="detalle-venta" class="tarjeta tarjeta--detalle"></div>
 
-      <p id="mensaje-detalle" role="status">La venta solicitada no existe o el identificador no es válido.</p>
+      <p id="mensaje-detalle" role="status" class="mensaje mensaje--error">Error: la venta solicitada no existe o el identificador no es válido.</p>
     </section>
 
-    <p><a href="historial.html">Volver al historial</a></p>
+    <p><a href="historial.html" class="boton boton--secundario">Volver al historial</a></p>
   </main>
 
   <footer>
