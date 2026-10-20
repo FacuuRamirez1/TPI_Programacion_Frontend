@@ -16,7 +16,11 @@
     email: 'El email es obligatorio.',
     emailFormato: 'El email no tiene un formato válido.',
     emailDuplicado: 'El email ya está registrado',
-    cantidad: 'La cantidad debe ser un entero mayor que cero.'
+    cantidad: 'La cantidad debe ser un entero mayor que cero.',
+    clienteId: 'Seleccioná un cliente existente.',
+    libroId: 'Seleccioná un libro existente.',
+    libroDuplicado: 'El libro ya está en la venta. Modificá la cantidad del renglón existente.',
+    renglones: 'Agregá al menos un renglón a la venta.'
   };
 
   var PATRON_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -185,11 +189,146 @@
     return { valido: false, error: MENSAJES.cantidad };
   }
 
+  function redondear2(valor) {
+    return Math.round((Number(valor) + Number.EPSILON) * 100) / 100;
+  }
+
+  function cantidadNormalizada(cantidad) {
+    var texto = String(cantidad ?? '').trim();
+    return texto === '' ? null : Number(texto);
+  }
+
+  function validarRenglon(entrada, contexto) {
+    var valores = entrada || {};
+    var colecciones = contexto || {};
+    var errores = {};
+
+    var libroId = String(valores.libroId ?? '').trim();
+    var indiceLibros = indicePorId(colecciones.libros);
+    var renglones = Array.isArray(colecciones.renglones) ? colecciones.renglones : [];
+
+    if (libroId === '' || !indiceLibros.has(libroId)) {
+      errores.libroId = MENSAJES.libroId;
+    } else {
+      var duplicado = renglones.some(function (renglon) {
+        return Boolean(renglon) && String(renglon.libroId ?? '').trim() === libroId;
+      });
+      if (duplicado) {
+        errores.libroId = MENSAJES.libroDuplicado;
+      }
+    }
+
+    var resultadoCantidad = validarCantidad(valores.cantidad);
+    var cantidad = null;
+
+    if (!resultadoCantidad.valido) {
+      errores.cantidad = resultadoCantidad.error;
+    } else {
+      cantidad = cantidadNormalizada(valores.cantidad);
+    }
+
+    return {
+      valido: Object.keys(errores).length === 0,
+      errores: errores,
+      datos: {
+        libroId: libroId,
+        cantidad: cantidad
+      }
+    };
+  }
+
+  function validarVenta(entrada, contexto) {
+    var valores = entrada || {};
+    var colecciones = contexto || {};
+    var errores = {};
+
+    var clienteId = String(valores.clienteId ?? '').trim();
+    var renglonesEntrada = Array.isArray(valores.renglones) ? valores.renglones : [];
+    var indiceClientes = indicePorId(colecciones.clientes);
+    var indiceLibros = indicePorId(colecciones.libros);
+    var cliente = indiceClientes.get(clienteId) || null;
+
+    if (clienteId === '' || !cliente) {
+      errores.clienteId = MENSAJES.clienteId;
+    }
+
+    var snapshot = [];
+    var total = 0;
+
+    if (renglonesEntrada.length === 0) {
+      errores.renglones = MENSAJES.renglones;
+    } else {
+      var vistos = new Set();
+      var problema = null;
+
+      renglonesEntrada.forEach(function (renglon) {
+        var libroId = String((renglon && renglon.libroId) ?? '').trim();
+        var libro = indiceLibros.get(libroId) || null;
+
+        if (!libro) {
+          problema = problema || MENSAJES.libroId;
+          return;
+        }
+
+        if (vistos.has(libroId)) {
+          problema = problema || MENSAJES.libroDuplicado;
+          return;
+        }
+
+        var resultadoCantidad = validarCantidad(renglon && renglon.cantidad);
+        if (!resultadoCantidad.valido) {
+          problema = problema || resultadoCantidad.error;
+          return;
+        }
+
+        vistos.add(libroId);
+        var cantidad = cantidadNormalizada(renglon.cantidad);
+        var precioUnitario = Number(libro.precio);
+        var subtotal = redondear2(cantidad * precioUnitario);
+
+        snapshot.push({
+          libroId: libroId,
+          titulo: libro.titulo,
+          cantidad: cantidad,
+          precioUnitario: precioUnitario,
+          subtotal: subtotal
+        });
+        total += subtotal;
+      });
+
+      if (problema) {
+        errores.renglones = problema;
+      }
+    }
+
+    var valido = Object.keys(errores).length === 0;
+
+    return {
+      valido: valido,
+      errores: errores,
+      datos: valido
+        ? {
+            clienteId: clienteId,
+            clienteNombre: cliente ? cliente.nombreCompleto : '',
+            renglones: snapshot,
+            total: redondear2(total)
+          }
+        : {
+            clienteId: clienteId,
+            clienteNombre: cliente ? cliente.nombreCompleto : '',
+            renglones: [],
+            total: 0
+          }
+    };
+  }
+
   TUCO.validaciones = {
     normalizarIsbn: normalizarIsbn,
     normalizarEmail: normalizarEmail,
     validarLibro: validarLibro,
     validarCliente: validarCliente,
-    validarCantidad: validarCantidad
+    validarCantidad: validarCantidad,
+    validarRenglon: validarRenglon,
+    validarVenta: validarVenta
   };
 })(window);

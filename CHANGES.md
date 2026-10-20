@@ -180,7 +180,7 @@ Paso │ Agente A (HTML/CSS/JS) │ Agente B │ Agente C
 ## FASE 5 — Venta simulada e historial (Ejercicio 5)
 
 ### [C-05] `venta-simulada-historial`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado
 - **Scope**: Composición, confirmación inmutable, historial y detalle de venta
   - `js/ventas.js`: carga de clientes y libros, alta de renglones, edición de cantidad, eliminación de renglones, cálculo de subtotal y total en vivo
   - Reglas: cliente existente; libro existente; cantidad entera > 0; sin libros repetidos (modificar cantidad o informar duplicado); al menos un renglón; no confirmar con datos inválidos
